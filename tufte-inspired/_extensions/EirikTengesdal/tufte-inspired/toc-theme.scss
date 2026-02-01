@@ -1,0 +1,93 @@
+/* Mirror spacing: first h1 should have 1rem margin-top to match title block bottom spacing */
+
+/* Override the first numbered h1 to have 1rem margin-top instead of default 2.1rem */
+h1[data-number="1"] {
+  margin-top: 1rem;
+}
+
+/* Make content links maroon by default, darker maroon on hover */
+/* Exclude title block header from this rule */
+main a,
+.content a,
+article a:not(#title-block-header a) {
+  color: maroon !important;
+}
+
+main a:hover,
+.content a:hover,
+article a:not(#title-block-header a):hover {
+  color: color-mix(in srgb, maroon 80%, black 20%) !important;
+}
+
+main a:active,
+.content a:active,
+article a:not(#title-block-header a):active {
+  color: color-mix(in srgb, maroon 80%, black 20%) !important;
+}
+
+/* Title block elements should maintain their original styling */
+#title-block-header a:hover {
+  color: color-mix(in srgb, maroon 80%, black 20%) !important;
+}
+
+/* TOC links should inherit text color, maroon when active, darker maroon on hover */
+#TOC a {
+  color: inherit !important;
+  font-size: 1.03em !important;
+}
+
+#TOC a:hover {
+  color: color-mix(in srgb, maroon 80%, black 20%) !important;
+}
+
+#TOC a.active {
+  color: maroon !important;
+}
+
+/* Increase TOC font size for better readability */
+#TOC {
+  font-size: 1.03em !important;
+}
+
+#TOC ul {
+  font-size: 1.03em !important;
+}
+
+#TOC li {
+  font-size: 1.03em !important;
+}
+
+/* TOC heading should be slightly larger than items */
+#toc-title {
+  font-size: 1.1em !important;
+}
+
+/* Increase figure and table caption font size for better readability */
+.figure-caption,
+.table-caption,
+figcaption,
+.caption {
+  font-size: 1.05em !important;
+}
+
+/* Ensure anchor links are visible when present */
+.anchor-section {
+  opacity: 0;
+  margin-left: 0.5rem;
+  color: #999 !important;
+  text-decoration: none !important;
+  transition: opacity 0.2s ease;
+}
+
+h1:hover .anchor-section,
+h2:hover .anchor-section,
+h3:hover .anchor-section,
+h4:hover .anchor-section,
+h5:hover .anchor-section,
+h6:hover .anchor-section {
+  opacity: 1;
+}
+
+.anchor-section:hover {
+  color: maroon !important;
+}

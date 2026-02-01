@@ -1,0 +1,87 @@
+title: Tufte-handout
+author: Eirik Tengesdal (based on Fred Guth)
+version: 1.0.0
+quarto-required: ">=1.5.0"
+contributes:
+  project:
+    output-dir: _manuscript
+    render:
+      - pedagogisk-profileringsdokument.qmd
+      - "!output-preview.html"
+      - "!deprecated_index-preview.html"
+  formats:
+    html:
+      # page-layout: full
+      page-layout: article
+      reference-location: margin
+      title-block-style: none
+      title-block-banner: true
+      tbl-cap-location: margin
+      cap-location: margin
+      css:
+        - styles.scss
+        - et-book.css
+        - toc-theme.scss
+      number-sections: true
+      #linkcolor: Maroon
+      #backgroundcolor: FloralWhite
+      #sidebarbackgroundcolor: FloralWhite
+      mainfont: "et-book" # To get both in HTML and Typst PDF, I specify in index.qmd
+      toc: true
+      toc-location: left
+      toc-title: "Innholdsfortegnelse"
+      anchor-sections: true
+      link-external-newwindow: true
+      crossref:
+        fig-title: "Figur"
+        tbl-title: "Tabell"
+        eq-title: "Ligning"
+      code-annotations: hover
+      default-image-extension: svg
+      #filters:
+        #- citing-html.lua
+        #- citeproc.lua
+      template-partials:
+        - title-block.html
+      title-block-author-single: "Forfatter"
+      title-block-author-plural: "Forfattere"
+      title-block-affiliation-single: "Forfatteradresse"
+      title-block-affiliation-plural: "Forfatteradresser"
+      title-block-published: "Dato"
+      title-block-modified: "Endret"
+      title-block-keywords: "Stikkord"
+      related-formats-title: "Andre formater"
+      section-title-abstract: "Sammendrag"
+    typst:
+      keep-typ: true
+      paper-size: "a4"
+      lang: "nb"
+      region: "NO"
+      # lang: "en"
+      # region: "GB"
+      section-numbering: "1.1.1"
+      toc: true
+      # toc-title: "Innholdsfortegnelse"
+      #fig-cap-location: bottom
+      #font-paths: "C:\\Users\\eirik\\OneDrive - OsloMet\\Documents\\RStudio\\MaalogMinne\\Fonts"
+      font-paths:
+        - "./Fonts"
+        - "./et-book"
+      template-partials:
+        - definitions.typ
+        - typst-template.typ
+        - typst-show.typ
+
+      filters:
+        - table.lua
+        - pre-quarto.lua
+        - table-to-figure.lua
+        - tufte-inspired-clean.lua
+        - margin_references.lua      # Must run BEFORE wrap-wideblock (creates wideblock Divs for CodeBlocks)
+        - wrap-wideblock.lua          # Wraps ALL wideblock Divs in #wideblock[]
+        - quarto
+        - code-caption-to-marginnote.lua
+        # - breakable-code.lua
+        - post-quarto.lua
+        # - booktabs.lua
+        - bibliography-title.lua

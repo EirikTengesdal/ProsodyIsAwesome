@@ -1,0 +1,9 @@
+function Cite(elem)
+  for i, citation in ipairs(elem.citations) do
+    if type(citation.prefix) ~= "string" then
+      citation.prefix = pandoc.utils.stringify(citation.prefix)
+    end
+    citation.prefix = string.gsub(citation.prefix, "2nd ed.", "2. utg.")
+  end
+  return elem
+end

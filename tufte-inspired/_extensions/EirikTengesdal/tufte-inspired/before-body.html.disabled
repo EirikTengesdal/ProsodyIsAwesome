@@ -1,0 +1,36 @@
+$if(toc)$
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Try multiple times with different delays
+  function moveTOC() {
+    const tocSidebar = document.getElementById('quarto-sidebar-toc-left');
+    const mainContent = document.querySelector('main') || document.getElementById('quarto-document-content');
+
+    console.log('Attempting to move TOC...', { tocSidebar: !!tocSidebar, mainContent: !!mainContent });
+
+    if (tocSidebar && mainContent) {
+      console.log('Found both elements, moving TOC');
+      console.log('TOC parent before:', tocSidebar.parentElement?.id);
+
+      // Move TOC as first child of main content
+      mainContent.insertBefore(tocSidebar, mainContent.firstChild);
+
+      console.log('TOC parent after:', tocSidebar.parentElement?.tagName);
+      return true; // Success
+    }
+    return false; // Failed
+  }
+
+  // Try immediately
+  if (!moveTOC()) {
+    // Try after 100ms
+    setTimeout(function() {
+      if (!moveTOC()) {
+        // Try after 500ms
+        setTimeout(moveTOC, 500);
+      }
+    }, 100);
+  }
+});
+</script>
+$endif$

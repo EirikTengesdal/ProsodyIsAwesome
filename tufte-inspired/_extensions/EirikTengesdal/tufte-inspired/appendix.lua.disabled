@@ -1,0 +1,7 @@
+function Header(el)
+  if el.classes:includes('appendix') then
+    el.attr.attributes['numbering'] = 'A.1'
+    el.attr.attributes['supplement'] = 'Appendix'
+  end
+  return el
+end
