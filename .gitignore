@@ -13,6 +13,7 @@
 _manuscript/
 site_libs/
 backup/
+README.html
 
 # OS files
 .DS_Store
@@ -22,9 +23,9 @@ Thumbs.db
 .vscode/
 .idea/
 *.Rproj.user/
+*.Rproj
 
 # Temporary files
 *~
 *.bak
 *.swp
-README.html
