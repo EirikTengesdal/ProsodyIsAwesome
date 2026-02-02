@@ -726,7 +726,7 @@ end
 
         -- Check if content has nested lists (indented list markers = 2+ spaces before -, +, *, or digit.)
         local has_nested_lists = content_typst:match("\n  +[-+*]") or content_typst:match("\n  +%d+%.")
-        
+
         -- Apply first-line-indent: 0em to all margin notes
         -- Only apply list marker workaround if nested lists are present
         -- Typst's default markers: [•], [‣], [–] cycling by depth
@@ -792,7 +792,7 @@ end
                 return string.format("%s%s%s%s", start, new_params, close, bracket)
               end)
             end
-            
+
             -- Create standalone Plain block with offset margin note
             local plain_block = pandoc.Plain({pandoc.RawInline('typst', modified_note)})
             table.insert(new_blocks, plain_block)
@@ -899,14 +899,14 @@ function Header(header)
     if header.identifier and header.identifier ~= "" then
       label_code = string.format(" <%s>", header.identifier)
     end
-    
+
     -- Generate heading using Typst's set rule in local scope to avoid block wrapper
     local typst_code = string.format([=[#[
   #set heading(numbering: none)
   %s %s
 ]%s]=],
       string.rep("=", header.level), heading_text, label_code)
-    
+
     return pandoc.RawBlock('typst', typst_code)
   end
 
@@ -948,7 +948,7 @@ function Header(header)
   local heading_text_parts = {}
   local sidenote_parts = {}
   for _, inline in ipairs(header.content) do
-    if inline.t == "RawInline" and inline.format == "typst" and 
+    if inline.t == "RawInline" and inline.format == "typst" and
        (inline.text:match("^#sidenote") or inline.text:match("^#marginnote")) then
       -- Extract sidenote/marginnote and inject alignment + dy parameters for vertical alignment
       -- alignment: "baseline" + dy: 0pt provides perfect visual alignment
@@ -956,11 +956,11 @@ function Header(header)
 
       -- Detect function name (sidenote or marginnote)
       local func_name = inline.text:match("^#(%w+)")
-      
+
       -- Inject alignment and dy parameters into sidenote/marginnote call
       if inline.text:match("^#" .. func_name .. "%(%)%[") then
         -- No existing parameters: #sidenote()[...] or #marginnote()[...]
-        modified_sidenote = inline.text:gsub("^#" .. func_name .. "%(%)%[", 
+        modified_sidenote = inline.text:gsub("^#" .. func_name .. "%(%)%[",
           "#" .. func_name .. "(alignment: \"baseline\", dy: 0pt)[")
       elseif inline.text:match("^#" .. func_name .. "%(.+%)%[") then
         -- Has parameters: #sidenote(...)[...] or #marginnote(...)[...]

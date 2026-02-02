@@ -60,8 +60,6 @@ format:
     # code-block-layout: main
     # code-max-line-length: 1
     # code-min-lines-for-wide: 1
-
-
 ---
 
 # Introduction

@@ -2,27 +2,17 @@
 /_*.local
 /.luarc.json
 
-# Fonts (potentially licensed/proprietary)
-/Fonts/*
-/et-book/*
-tufte-inspired/Fonts/*
-tufte-inspired/et-book/*
+# Fonts
+/Fonts
+/et-book
 
 # Build outputs
-*.typ
-*.html
 *.html.md
 *.typst.md
 *_files/
 _manuscript/
 site_libs/
 backup/
-
-# PDFs (may contain sensitive content)
-*.pdf
-
-# Quarto outputs
-INSTALL_TOOLKIT_README_working.*
 
 # OS files
 .DS_Store
