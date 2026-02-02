@@ -79,19 +79,18 @@ Licensed under the [MIT License](LICENSE).
 
 ## Author
 
-**Eirik Tengesdal**
-Assistant Professor of Norwegian
-[Department of Early Childhood Education (BLU)](https://www.oslomet.no/en/about/employee/eiten9710/)
-OsloMet – Oslo Metropolitan University
+[Eirik Tengesdal](https://eiriktengesdal.no/)  
+Assistant Professor of Norwegian  
+[Department of Early Childhood Education (BLU)](https://www.oslomet.no/en/about/employee/eiten9710/)  
+OsloMet – Oslo Metropolitan University  
 [eirik.tengesdal@oslomet.no](mailto:eirik.tengesdal@oslomet.no)
 
-Guest Researcher and PhD Student
-[Department of Linguistics and Scandinavian Studies (ILN)](https://www.hf.uio.no/iln/?vrtx=person-view&uid=eirikten)
-University of Oslo
+Guest Researcher and PhD Student  
+[Department of Linguistics and Scandinavian Studies (ILN)](https://www.hf.uio.no/iln/?vrtx=person-view&uid=eirikten)  
+University of Oslo  
 [eirik.tengesdal@iln.uio.no](mailto:eirik.tengesdal@iln.uio.no)
 
 ORCID iD: [0000-0003-0599-8925](https://orcid.org/0000-0003-0599-8925)
-
 
 ## Contributing
 
