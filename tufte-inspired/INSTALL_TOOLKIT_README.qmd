@@ -29,8 +29,8 @@ toc-depth: 1
 date: last-modified
 date-format: iso
 execute:
-  keep-md: true
-  keep-typ: true
+  keep-md: false
+  keep-typ: false
 bibliography: []
 format:
   # html:
@@ -55,8 +55,8 @@ format:
   #         }
   #         </style>
   #   default-image-extension: svg
-  tufte-inspired-typst:
-    show-layout-frame: true  # Enable debugging layout frame
+  tufte-inspired-typst: default
+    # show-layout-frame: true  # Enable debugging layout frame
     # code-block-layout: main
     # code-max-line-length: 1
     # code-min-lines-for-wide: 1
@@ -68,10 +68,10 @@ format:
 
 The [Wavelet Prosody Toolkit](https://github.com/asuni/wavelet_prosody_toolkit) is a powerful tool for analysing prosodic features in speech. This guide helps you install it on Windows, macOS, or Linux, but no guarantees are made. It describes files that are included in the installation package, pertaining to two installation methods: a global user-level installation and a per-project installation.
 
-You can download the installation scripts from here: [...](...).
+You can download the installation scripts from [github.com/EirikTengesdal/ProsodyIsAwesome](https://github.com/EirikTengesdal/ProsodyIsAwesome).
 
 ## Support
-For installation issues, please email Eirik Tengesdal at [eirik.tengesdal@oslomet.no](mailto:eirik.tengesdal@oslomet.no).
+For installation issues, please email Eirik Tengesdal at [eirik.tengesdal@oslomet.no](mailto:eirik.tengesdal@oslomet.no) with sufficient details about your system and the problem encountered. You can also open an issue on the [GitHub repository](https://github.com/EirikTengesdal/ProsodyIsAwesome/issues) if you believe it is a bug.
 
 <!--
 ::: {.column-margin}
@@ -112,19 +112,17 @@ Note: Use quotes for string values like alignment="bottom" or dy="1.5em"
 
 ## Global Installation (recommended):
 
-- Windows: `install_toolkit_standalone.ps1`{.powershell}
-- macOS/Linux: `install_toolkit_standalone.sh`{.bash}
+- Windows: [`install_toolkit_standalone.ps1`{.powershell}](https://github.com/EirikTengesdal/ProsodyIsAwesome/blob/main/install_toolkit_standalone.ps1)
+- macOS/Linux: [`install_toolkit_standalone.sh`{.bash}](https://github.com/EirikTengesdal/ProsodyIsAwesome/blob/main/install_toolkit_standalone.sh)
 - Use across multiple projects without reinstalling
 
 ## Per-Project Installation:
 
-- Windows: `install_toolkit_project.ps1`{.powershell}
-- macOS/Linux: `install_toolkit_project.sh`{.bash}
+- Windows: [`install_toolkit_project.ps1`{.powershell}](https://github.com/EirikTengesdal/ProsodyIsAwesome/blob/main/install_toolkit_project.ps1)
+- macOS/Linux: [`install_toolkit_project.sh`{.bash}](https://github.com/EirikTengesdal/ProsodyIsAwesome/blob/main/install_toolkit_project.sh)
 - Isolated dependencies and strict reproducibility
 
 # Option 1: Global User-Level Installation
-
-This installs the toolkit once to your user Python environment, making it available from any directory.
 
 ::: {.column-margin}
 **Default Locations:**
@@ -132,6 +130,17 @@ This installs the toolkit once to your user Python environment, making it availa
 - Windows: `%USERPROFILE%\wavelet_prosody_toolkit`{.powershell}
 - macOS/Linux: `~/wavelet_prosody_toolkit`{.bash}
 :::
+
+This installs the toolkit once to your user Python environment, making it available from any directory.
+
+<!--
+::: {.column-margin}
+**Default Locations:**
+
+- Windows: `%USERPROFILE%\wavelet_prosody_toolkit`{.powershell}
+- macOS/Linux: `~/wavelet_prosody_toolkit`{.bash}
+:::
+-->
 
 ## Installation
 
@@ -195,7 +204,9 @@ python3 -m wavelet_prosody_toolkit.wavelet_gui
 python3 your_analysis_script.py
 ```
 
-**Python Usage**
+{{< pagebreak >}}
+
+### Python Usage
 
 In your Python code (all platforms):
 
@@ -309,11 +320,14 @@ Python 3.8 or later is recommended. The toolkit may work with earlier versions b
 
 ### Python 3
 
+:::{ .column-margin}
+Download from: [python.org/downloads](https://www.python.org/downloads/)
+:::
+
 **Windows:**
 ```powershell
 python --version
 ```
-Download from: [python.org/downloads](https://www.python.org/downloads/)
 
 **macOS/Linux:**
 ```bash
@@ -322,26 +336,23 @@ python3 --version
 
 ### Git
 
+:::{ .column-margin}
+Download from: [git-scm.com/download/win](https://git-scm.com/download/win)
+:::
+
 **Windows:**
 ```powershell
 git --version
 ```
-Download from: [git-scm.com/download/win](https://git-scm.com/download/win)
 
 **macOS/Linux:**
 ```bash
 git --version
 ```
 
-## Platform-Specific
+<!-- {{< pagebreak >}} -->
 
-### macOS Only
-
-Xcode Command Line Tools:
-
-```bash
-xcode-select --install
-```
+<!-- ## Platform-Specific
 
 ### Windows Only
 
@@ -362,6 +373,14 @@ The following packages will be automatically installed:
 - PyQt6
 :::
 
+### macOS Only
+
+Xcode Command Line Tools:
+
+```bash
+xcode-select --install
+``` -->
+
 # Quick Start Example
 
 ## Global Installation
@@ -379,10 +398,10 @@ cd C:\Users\YourName\my_prosody_analysis
 @"
 import wavelet_prosody_toolkit as wpt
 # Your analysis code here
-"@ | Out-File -Encoding utf8 analyze.py
+"@ | Out-File -Encoding utf8 analyse.py
 
 # Run it
-python analyze.py
+python analyse.py
 ```
 
 ### macOS/Linux
@@ -395,13 +414,13 @@ python analyze.py
 cd ~/my_prosody_analysis
 
 # Create your analysis script
-cat > analyze.py << 'EOF'
+cat > analyse.py << 'EOF'
 import wavelet_prosody_toolkit as wpt
 # Your analysis code here
 EOF
 
 # Run it
-python3 analyze.py
+python3 analyse.py
 ```
 
 ## Per-Project Installation
@@ -416,7 +435,7 @@ python3 analyze.py
 .\.venv\Scripts\Activate.ps1
 
 # Create and run your analysis
-python analyze.py
+python analyse.py
 ```
 
 ### macOS/Linux
@@ -429,7 +448,7 @@ python analyze.py
 source .venv/bin/activate
 
 # Create and run your analysis
-python analyze.py
+python analyse.py
 ```
 
 <!-- # Troubleshooting
@@ -513,8 +532,8 @@ The following table summarises the installation scripts included in this package
 ::: {.wideblock columns="25%, auto, auto"}
 | Purpose | Windows | macOS/Linux |
 |---------|---------|-------------|
-| Global installation | `install_toolkit_standalone.ps1`{.powershell} | `install_toolkit_standalone.sh`{.bash} |
-| Per-project installation | `install_toolkit_project.ps1`{.powershell} | `install_toolkit_project.sh`{.bash} |
+| Global installation | [`install_toolkit_standalone.ps1`{.powershell}](https://github.com/EirikTengesdal/ProsodyIsAwesome/blob/main/install_toolkit_standalone.ps1) | [`install_toolkit_standalone.sh`{.bash}](https://github.com/EirikTengesdal/ProsodyIsAwesome/blob/main/install_toolkit_standalone.sh) |
+| Per-project installation | [`install_toolkit_project.ps1`{.powershell}](https://github.com/EirikTengesdal/ProsodyIsAwesome/blob/main/install_toolkit_project.ps1) | [`install_toolkit_project.sh`{.bash}](https://github.com/EirikTengesdal/ProsodyIsAwesome/blob/main/install_toolkit_project.sh) |
 :::
 
 ::: {.column-margin}
@@ -523,25 +542,31 @@ The following table summarises the installation scripts included in this package
 All files are included in the distribution package and can be used independently.
 :::
 
-# Additional Resources
+<!-- # Additional Resources -->
 
-Test for Additional Resources:
+<!-- Test for Additional Resources: -->
 
-::: {.column-margin}
+<!-- ::: {.column-margin}
 **Support:**
 
 For issues specific to the toolkit itself (not installation), please refer to the GitHub repository's issue tracker.
-:::
+::: -->
 
-- **Toolkit Repository**: [github.com/asuni/wavelet_prosody_toolkit](https://github.com/asuni/wavelet_prosody_toolkit)
+<!-- - **Toolkit Repository**: [github.com/asuni/wavelet_prosody_toolkit](https://github.com/asuni/wavelet_prosody_toolkit)
 - **Installation Method**: pip install in editable mode (allows toolkit updates via `git pull`)
-- **Installation Type**: User-level (no admin/sudo required)
+- **Installation Type**: User-level (no admin/sudo required) -->
 
-\
+<!-- ::: {.column-margin}
+**Support:**
 
-# Acknowledgements {.unnumbered}
+For issues specific to the toolkit itself (not installation), please refer to the GitHub repository's issue tracker.
+::: -->
 
-This installation package was created to facilitate the use of the Wavelet Prosody Toolkit across different operating systems and research environments. Special thanks to the toolkit developers and the Python scientific computing community.
+<!-- # Acknowledgements {.unnumbered}
+
+::: {.wideblock}
+This installation package was created to facilitate the use of the _Wavelet Prosody Toolkit_ across different operating systems and research environments. Special thanks to the toolkit developers and the Python scientific computing community.
+::: -->
 
 <!-- --- -->
 <!--

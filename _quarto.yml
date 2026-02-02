@@ -1,0 +1,28 @@
+# Local development configuration
+# This completely overrides the extension to use local files
+
+formats:
+  typst:
+    keep-typ: false
+    template-partials:
+      - "_extensions/EirikTengesdal/tufte-inspired/definitions.typ"
+      - "_extensions/EirikTengesdal/tufte-inspired/typst-template.typ"
+      - "_extensions/EirikTengesdal/tufte-inspired/typst-show.typ"
+    paper-size: "a4"
+    lang: "en"
+    region: "GB"
+    section-numbering: "1.1.1"
+    toc: true
+    font-paths:
+      - "./Fonts"
+      - "./et-book"
+    filters:
+      - _extensions/EirikTengesdal/tufte-inspired/table.lua
+      - _extensions/EirikTengesdal/tufte-inspired/pre-quarto.lua
+      - _extensions/EirikTengesdal/tufte-inspired/tufte-inspired-clean.lua
+      - _extensions/EirikTengesdal/tufte-inspired/margin_references.lua
+      - quarto
+      - _extensions/EirikTengesdal/tufte-inspired/post-quarto.lua
+      - _extensions/EirikTengesdal/tufte-inspired/booktabs.lua
+      - _extensions/EirikTengesdal/tufte-inspired/bibliography-title.lua
+      - _extensions/EirikTengesdal/tufte-inspired/wrap-wideblock.lua
